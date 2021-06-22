@@ -60,10 +60,10 @@ const EnterBtn = styled.button`
     }
 `
 
-const HomePage = ({view,switchPage}) => {
+const HomePage = () => {
 
     return (
-        <Wrap style={{display:view}}>
+        <Wrap >
             <HomepageWrap>
                 <Header>
                     Memome!

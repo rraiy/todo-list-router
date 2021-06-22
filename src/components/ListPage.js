@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const StyleDiv = styled.div`
     width:500px;
+    display:flex;
     background:#fff;
     margin:0 auto;
     flex-direction:column;
@@ -32,7 +33,7 @@ const BackBtn = styled.button`
     }
 `
 
-const ListPage = ({view,switchPage}) => {
+const ListPage = () => {
 
     const [lists, setLists] = useState([])
 
@@ -52,7 +53,7 @@ const ListPage = ({view,switchPage}) => {
     }
 
     return (
-        <StyleDiv style={{display:view}}>
+        <StyleDiv >
 
             <AddForm onAddEvent={onAddEvent}/>
             <List lists={lists} onRemoveEvent={onRemoveEvent}/>
