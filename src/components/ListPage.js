@@ -4,7 +4,7 @@ import List from './List';
 import styled from 'styled-components';
 
 const StyleDiv = styled.div`
-    width:300px;
+    width:500px;
     background:#fff;
     margin:0 auto;
     flex-direction:column;
@@ -14,14 +14,14 @@ const StyleDiv = styled.div`
     padding:20px;
 `;
 
-const Button = styled.button`
-    width: 80px;
+const BackBtn = styled.button`
     margin:0 auto;
     border:1px solid rgb(121, 81, 255);
     border-radius: 5px;
     background: #fff;
     color:rgb(121, 81, 255);
     cursor:pointer;
+    height: 30px;
 
     :hover {
     border:1px solid rgb(121, 81, 255);
@@ -31,7 +31,7 @@ const Button = styled.button`
     }
 `
 
-const ListPage = () => {
+const ListPage = ({view,switchPage}) => {
 
     const [lists, setLists] = useState([])
 
@@ -51,10 +51,11 @@ const ListPage = () => {
     }
 
     return (
-        <StyleDiv>
+        <StyleDiv style={{display:view}}>
 
             <AddForm onAddEvent={onAddEvent}/>
             <List lists={lists} onRemoveEvent={onRemoveEvent}/>
+            <BackBtn onClick={switchPage}>back to homepage</BackBtn>
         </StyleDiv>
     )
 }

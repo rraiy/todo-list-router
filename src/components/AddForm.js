@@ -7,11 +7,14 @@ const StyleDiv = styled.div`
 `
 const Form = styled.form`
     display:flex;
-    width:300px;
+    width:400px;
     justify-content:space-between;
 `
 const Input = styled.input`
-    width:200px;
+    width:250px;
+    border:1px solid rgb(121, 81, 255);
+    border-radius: 5px;
+    height:20px;
 `
 const AddButton = styled.button`
     border:1px solid rgb(121, 81, 255);

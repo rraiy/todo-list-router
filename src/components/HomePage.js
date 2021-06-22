@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 const Wrap = styled.div`
     display:flex;
-    width:300px;
+    width:500px;
     margin:0 auto;
 `
 
 const HomepageWrap = styled.div`
+    width:100%;
     flex-direction:column;
     justify-content: center;
     align-items: center;
@@ -17,7 +18,7 @@ const Header = styled.div`
     justify-content:center;
     align-items: center;
     background:rgb(121, 81, 255); 
-    width:300px;
+    width:100%;
     height:50px;
     color:white;
     font-size:28px;
@@ -26,7 +27,7 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width:300px;
+    width:100%;
 `
  
 const Banner = styled.div`
@@ -43,6 +44,7 @@ const Banner = styled.div`
 
 const EnterBtn = styled.button`
     width: 150px;
+    height: 30px;
     border:1px solid rgb(121, 81, 255);
     border-radius: 5px;
     background: #fff;
@@ -57,18 +59,19 @@ const EnterBtn = styled.button`
     }
 `
 
-const HomePage = () => {
+const HomePage = ({view,switchPage}) => {
 
     return (
-        <Wrap style={{display:'none'}}>
+        <Wrap style={{display:view}}>
             <HomepageWrap>
                 <Header>
                     Memome!
                 </Header>
                 <Content>
                     <Banner>
-                        Welcome to Memome! <br/>Free to use a todo-list application.<br/> Enjoy it!</Banner>
-                    <EnterBtn>
+                        Welcome to Memome! <br/>Free to use a todo-list application.<br/> Enjoy it!
+                    </Banner>
+                    <EnterBtn onClick={switchPage}>
                         Enter list
                     </EnterBtn>
                 </Content>

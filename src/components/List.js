@@ -5,7 +5,7 @@ const Ul = styled.ul`
     padding:10px;
 `
 const Li = styled.li`
-    width:300px;
+    width:400px;
     display: flex;
     justify-content:space-between;
     margin-bottom:4px;
@@ -30,8 +30,6 @@ const Button = styled.button`
 `
 
 const List= ({lists, onRemoveEvent}) => {
-
-
 
     const renderLists = lists.map(list => {
         return(
