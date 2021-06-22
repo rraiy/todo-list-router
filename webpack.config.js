@@ -9,12 +9,14 @@ module.exports = {
     entry:"./src/index.js",
     output:{
         path:path.join(__dirname, 'dist'),
-        filename:"main.[hash].js"
+        filename:"main.[hash].js",
+        publicPath:"/"
     },
     devtool:'source-map',
     devServer:{
         contentBase:'./dist',
         writeToDisk:true,
+        historyApiFallback:true,
     },
     module: {
         rules: [

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import AddForm from './AddForm';
 import List from './List';
 import styled from 'styled-components';
@@ -55,7 +56,9 @@ const ListPage = ({view,switchPage}) => {
 
             <AddForm onAddEvent={onAddEvent}/>
             <List lists={lists} onRemoveEvent={onRemoveEvent}/>
-            <BackBtn onClick={switchPage}>back to homepage</BackBtn>
+            <Link to="/">
+                <BackBtn >back to homepage</BackBtn>
+            </Link>
         </StyleDiv>
     )
 }

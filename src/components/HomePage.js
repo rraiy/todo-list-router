@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const Wrap = styled.div`
     display:flex;
@@ -71,9 +72,12 @@ const HomePage = ({view,switchPage}) => {
                     <Banner>
                         Welcome to Memome! <br/>Free to use a todo-list application.<br/> Enjoy it!
                     </Banner>
-                    <EnterBtn onClick={switchPage}>
+
+                <Link to="/list">
+                    <EnterBtn >
                         Enter list
                     </EnterBtn>
+                </Link>
                 </Content>
             </HomepageWrap>
         </Wrap>
