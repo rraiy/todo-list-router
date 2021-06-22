@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const mode_env = process.env.NODE_ENV === 'production' ? 'production':'development'
 
@@ -12,7 +13,8 @@ module.exports = {
     },
     devtool:'source-map',
     devServer:{
-        contentBase:'./dist'
+        contentBase:'./dist',
+        writeToDisk:true,
     },
     module: {
         rules: [
@@ -28,6 +30,7 @@ module.exports = {
     plugins:[
         new HtmlWebpackPlugin({
             template: "./base.html"
-        })
+        }),
+        new CleanWebpackPlugin()
     ]
 }
