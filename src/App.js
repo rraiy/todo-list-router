@@ -3,9 +3,15 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 import HomePage from './components/HomePage';
 import ListPage from './components/ListPage';
+import firebase from './database/db_init';
+
+// const db = firebase.firestore()
 
 const App = () => {
 
+    // db.collection("user").doc("memo").set({
+    //     message:"123"
+    // })
 
     return(
         // <div>

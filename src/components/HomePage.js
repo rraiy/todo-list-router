@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import {test} from '../database/db_init';
 
 const Wrap = styled.div`
     display:flex;
@@ -30,7 +31,7 @@ const Content = styled.div`
     align-items: center;
     width:100%;
 `
- 
+
 const Banner = styled.div`
     display: flex;
     justify-content:center;
@@ -61,6 +62,11 @@ const EnterBtn = styled.button`
 `
 
 const HomePage = () => {
+
+    // db.collection('123').doc('0958').set({
+    //     test:'111'
+    // })
+
 
     return (
         <Wrap >

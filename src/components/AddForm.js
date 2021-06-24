@@ -1,5 +1,6 @@
 import React, {useState}from 'react';
 import styled from 'styled-components';
+import * as FirebaseFunc from '../database/db_init';
 
 const StyleDiv = styled.div`
     padding-bottom:10px;
@@ -40,13 +41,20 @@ const AddForm = ({onAddEvent}) => {
         onAddEvent(newItem)
     }
 
+    const testIt = e =>{
+        e.preventDefault();
+
+        console.log(FirebaseFunc)
+    }
+
     return (
         <StyleDiv>
             <Form onSubmit={e=>onAdd(e)}>
                 <Input onChange={e => setNewItem({text:e.target.value, key:Date.now()})} />
-                <AddButton type="submit">
+                <AddButton type="submit" >
                     Add
                 </AddButton>
+                <button onClick={testIt}></button>
             </Form>
         </StyleDiv>
     )

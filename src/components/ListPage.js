@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import AddForm from './AddForm';
 import List from './List';
+import GetUser from'./GetUser';
 import styled from 'styled-components';
 
 const StyleDiv = styled.div`
@@ -36,6 +37,7 @@ const BackBtn = styled.button`
 const ListPage = () => {
 
     const [lists, setLists] = useState([])
+    const [user, setUser] = useState('')
 
     const onAddEvent = ({text, key}) => {
         if(text === ''){
@@ -54,7 +56,7 @@ const ListPage = () => {
 
     return (
         <StyleDiv >
-
+            <GetUser />
             <AddForm onAddEvent={onAddEvent}/>
             <List lists={lists} onRemoveEvent={onRemoveEvent}/>
             <Link to="/">

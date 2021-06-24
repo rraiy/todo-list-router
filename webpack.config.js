@@ -12,7 +12,7 @@ module.exports = {
         filename:"main.[hash].js",
         publicPath:"/"
     },
-    devtool:'source-map',
+    devtool:(mode_env === 'development') ? 'source-map' : false,
     devServer:{
         contentBase:'./dist',
         writeToDisk:true,
