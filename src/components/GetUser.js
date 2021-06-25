@@ -19,7 +19,7 @@ const Input = styled.input`
     height:20px;
     
 `
-const AddButton = styled.button`
+const GetButton = styled.button`
     border:1px solid rgb(121, 81, 255);
     border-radius: 5px;
     background: #fff;
@@ -34,39 +34,35 @@ const AddButton = styled.button`
     }
 `
 
-const  GetUser = () => {
+const UserName = styled.p`
+    line-height:1.5em;
+    color:rgb(121, 81, 255);
+`
+
+const  GetUser = ({checkUser,oldList}) => {
 
     const [findUser, setFindUser] = useState('');
-    const [user, setUser] = useState('');
 
-    function checkUserExist(user){
-        return user === findUser;
-    }
 
-    const checkUserEvent = (e) => {
+    const onCheckUser = (e) => {
         e.preventDefault();
-        const userArr = [];
-
-        db.collection('users').get().then( doc => {
-            doc.forEach( user => userArr.push(user.id));
-            console.log(userArr)
-            // setUser(userArr.find(checkUserExist));
-        });
-
+        checkUser(findUser);
     }
 
     return (
-        <Form onSubmit={e => checkUserEvent(e)}>
+        <>
+        <Form onSubmit={e => onCheckUser(e)}>
                 <Input   
-                    placeholder="type username or type a new user"
+                    placeholder="search username or create a new user"
                     onChange={e => {setFindUser(e.target.value)}}
                     value={findUser}
                 />
-                <AddButton type="submit" >
-                    get data
-                </AddButton>
+                <GetButton type="submit" >
+                    Submit
+                </GetButton>
                 
-            </Form>
+        </Form>
+        </>
     )
 }
 

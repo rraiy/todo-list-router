@@ -41,11 +41,7 @@ const AddForm = ({onAddEvent}) => {
         onAddEvent(newItem)
     }
 
-    const testIt = e =>{
-        e.preventDefault();
 
-        console.log(FirebaseFunc)
-    }
 
     return (
         <StyleDiv>
@@ -54,7 +50,7 @@ const AddForm = ({onAddEvent}) => {
                 <AddButton type="submit" >
                     Add
                 </AddButton>
-                <button onClick={testIt}></button>
+
             </Form>
         </StyleDiv>
     )

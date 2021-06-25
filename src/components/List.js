@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 
 const Ul = styled.ul`
@@ -30,6 +30,12 @@ const Button = styled.button`
 `
 
 const List= ({lists, onRemoveEvent}) => {
+
+    // useEffect(
+    //     ()=>{
+    //         renderLists()
+    //     }
+    //     ,[lists])
 
     const renderLists = lists.map(list => {
         return(
