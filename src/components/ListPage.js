@@ -47,20 +47,31 @@ const ListPage = () => {
         if(text === ''){
             return alert('Please type some content.');
         }
-        if(!newUser){
-            db.collection('users').doc(user).collection('lists').doc(text).set({
-                text: text,
-                upTime: key,
+        db.collection('users').doc(user).set({test:null}).then(()=>{
+            db.collection('users').doc(user).collection('lists').add({
+                list: text,
+                time: key,
             })
-        }
-        const newItem = {text: text, key: key};
-        setLists([...lists, newItem])
+            const newItem = {text: text, key: key};
+            setLists([...lists, newItem])
+        }).then((err)=>console.log(err));
     }
 
     // remove list
-    const onRemoveEvent = key => {
-        const finishLists =  lists.filter(list => list.key !== key);
-        setLists(finishLists);
+    const onRemoveEvent = (text,key) => {
+        const path = db.collection('users').doc(user).collection('lists');
+        
+        path.where('list', '==',text).get()
+        .then((doc)=>{
+            doc.forEach(list=>{
+                path.doc(list.id).delete()
+                .then(()=>{
+                    const finishLists =  lists.filter(list => list.key !== key);
+                    setLists(finishLists)
+                })
+            })
+        })
+        .catch((error)=> console.log(error))
     }
 
 
@@ -78,13 +89,13 @@ const ListPage = () => {
                 db.collection('users').doc(username).collection('lists').get().then(doc=>{
                     doc.forEach(list => {
                         userLists.push({
-                            text:list.id,
-                            key:list.data().upTime.toString()
+                            text:list.data().list,
+                            key:list.data().time
                         })
                     });
                     setLists(userLists);
                 })
-            }
+            }else{setLists([]);}
         });
     }
 

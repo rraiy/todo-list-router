@@ -31,17 +31,12 @@ const Button = styled.button`
 
 const List= ({lists, onRemoveEvent}) => {
 
-    // useEffect(
-    //     ()=>{
-    //         renderLists()
-    //     }
-    //     ,[lists])
 
     const renderLists = lists.map(list => {
         return(
             <Li key={list.key}>
                 {list.text}
-                <Button onClick={()=>onRemoveEvent(list.key)}>delete</Button>
+                <Button onClick={()=>onRemoveEvent(list.text,list.key)}>delete</Button>
             </Li>
         )
     })

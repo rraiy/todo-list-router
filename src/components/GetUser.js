@@ -58,7 +58,7 @@ const  GetUser = ({checkUser,oldList}) => {
                     value={findUser}
                 />
                 <GetButton type="submit" >
-                    Submit
+                    Search/Create
                 </GetButton>
                 
         </Form>

@@ -46,7 +46,11 @@ const AddForm = ({onAddEvent}) => {
     return (
         <StyleDiv>
             <Form onSubmit={e=>onAdd(e)}>
-                <Input onChange={e => setNewItem({text:e.target.value, key:Date.now()})} />
+                <Input 
+                onChange={e => setNewItem({text:e.target.value, key:Date.now()})} 
+                placeholder="add memo here"
+                
+                />
                 <AddButton type="submit" >
                     Add
                 </AddButton>
